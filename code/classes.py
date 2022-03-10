@@ -25,7 +25,7 @@ class LanguageUtils:
         '''
         Representation method for the class:
         '''
-        return f"{self.input_text}"
+        return f"{self._input_text}"
 
     def detect_language(self):
         '''

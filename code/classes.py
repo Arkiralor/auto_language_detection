@@ -5,7 +5,7 @@ import spacy
 from spacy_langdetect import LanguageDetector
 from spacy.language import Language as ln
 from spacy_langdetect import LanguageDetector
-import en_core_web_sm
+import en_core_web_sm, en_core_web_md, en_core_web_trf
 
 
 class LanguageUtils:
@@ -32,7 +32,7 @@ class LanguageUtils:
         Method to detect the language of the passed text:
         '''
         ln.factory("language_detector", func=create_lang_detector)
-        nlp = en_core_web_sm.load(disable=[None])
+        nlp = en_core_web_md.load(disable=[None])
         nlp.max_length = 2_000_000
 
         nlp.add_pipe("language_detector", last=True)

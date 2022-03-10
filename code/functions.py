@@ -1,6 +1,6 @@
 from os import sep
 from code.classes import LanguageUtils
-from code.constants import FILE_PATH
+from code.constants import DIR_PATH
 
 
 def generate_text(file_path: str):
@@ -11,7 +11,7 @@ def generate_text(file_path: str):
 
 
 def check_language(file_name: str = "en_01.txt"):
-    text_string = generate_text(FILE_PATH + sep + file_name)
+    text_string = generate_text(DIR_PATH + sep + file_name)
     language_utils = LanguageUtils(text_string)
     lang_detected, confidence_score = language_utils.detect_language()
     print(f"Language detected for '{file_name}' is: {lang_detected}")

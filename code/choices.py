@@ -8,8 +8,7 @@ LANG_DICT = {
     'mr': 'Marathi', 'pa': 'Punjabi', 'gu': 'Gujarati', 'or': 'Oriya',
     'sa': 'Sanskrit', 'ur': 'Urdu', 'as': 'Assamese', 'my': 'Burmese',
     'am': 'Amharic', 'ne': 'Nepali', 'sd': 'Sindhi', 'si': 'Sinhala',
-    'lo': 'Lao', 'km': 'Khmer', 'bo': 'Tibetan'
-
+    'lo': 'Lao', 'km': 'Khmer', 'bo': 'Tibetan', 'default': 'Unknown'
 }
 
 if __name__ == "__main__":

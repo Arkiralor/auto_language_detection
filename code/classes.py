@@ -12,12 +12,14 @@ class LanguageUtils:
     '''
     Class to handle language detection in blogposts while adding a new blog-post:
     '''
+    _input_text:str = None
+    _threshold:float = 0.95
 
     def __init__(self, input_text: str):
         '''
         Initialization method for the class:
         '''
-        self.input_text = input_text
+        self._input_text = input_text
 
     def __repr__(self):
         '''
@@ -35,10 +37,14 @@ class LanguageUtils:
 
         nlp.add_pipe("language_detector", last=True)
 
-        doc = nlp(self.input_text)
+        doc = nlp(self._input_text)
         lang_code = doc._.language.get("language")
         confidence_score = doc._.language.get("score")
-        return LANG_DICT.get(lang_code), confidence_score
+
+        if confidence_score >= self._threshold:
+            return LANG_DICT.get(lang_code), confidence_score
+        else:
+            return LANG_DICT.get('default'), confidence_score
 
 
 @ln.factory('language_detector')

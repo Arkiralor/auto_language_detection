@@ -1,3 +1,7 @@
+'''
+Python program to automatically detect the Natural Language of a given text-document.
+'''
+
 from code.functions import check_language
 
 if __name__ == "__main__":

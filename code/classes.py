@@ -33,7 +33,7 @@ class LanguageUtils:
         '''
         ln.factory("language_detector", func=create_lang_detector)
         nlp = en_core_web_sm.load(disable=[None])
-        nlp.max_length = 2000000
+        nlp.max_length = 2_000_000
 
         nlp.add_pipe("language_detector", last=True)
 

@@ -10,7 +10,7 @@ import en_core_web_sm, en_core_web_md, en_core_web_trf
 
 class LanguageUtils:
     '''
-    Class to handle language detection in blogposts while adding a new blog-post:
+    Class to handle language detection in text:
     '''
     _input_text:str = None
     _threshold:float = 0.95

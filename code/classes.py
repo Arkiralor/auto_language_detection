@@ -34,12 +34,20 @@ class LanguageUtils:
         Method to detect the language of the passed text:
         '''
         try:
+            ## 001 (prithoo): MAJOR CHANGE in Spacy v3:
+            ## Language.factory() no longer accepts a class directly as the first arg.
+            ## Instead, now it calls a tagged decorator that calls a function that return the class-pointer.
             ln.factory("language_detector", func=create_lang_detector)
+
+            ## 001 (prithoo): Loading the NLP model to the nlp object
             nlp = en_core_web_md.load(disable=[None])
+
+            ## 001 (prithoo): Max length of the input text.
             nlp.max_length = 2_000_000
 
             nlp.add_pipe("language_detector", last=True)
 
+            ## 001 (prithoo): Initial parsing of the text by the nlp object
             doc = nlp(self._input_text)
             lang_code = doc._.language.get("language")
             confidence_score = doc._.language.get("score")

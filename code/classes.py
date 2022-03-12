@@ -7,7 +7,7 @@ import spacy
 from spacy_langdetect import LanguageDetector
 from spacy.language import Language as ln
 from spacy_langdetect import LanguageDetector
-import en_core_web_sm, en_core_web_md, en_core_web_trf
+import en_core_web_sm
 
 
 class LanguageUtils:

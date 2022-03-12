@@ -7,7 +7,7 @@ from code.choices import LANG_DICT
 import json
 
 FILE_PATH = "code\choices_2.py"
-DICT_NAME = "LANG_DICT = "
+DICT_NAME = "LANG_DICT = " ## This is the name of the output dictionary that will be saved to the file.
 
 lang_dict = sorted(LANG_DICT)
 LANG_DICT_2 = {}

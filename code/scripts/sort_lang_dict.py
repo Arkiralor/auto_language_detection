@@ -1,3 +1,8 @@
+'''
+Script to sort the LANGUAGE DICTIONARY by the keys and to generate a new 
+"choices.py" file to store the python dictionary to be used for import.
+'''
+
 from code.choices import LANG_DICT
 import json
 

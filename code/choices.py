@@ -38,7 +38,7 @@ LANG_DICT = {
     "tr": "Turkish",
     "ur": "Urdu",
     "vi": "Vietnamese",
-    "zh": "Chinese"
+    "zh-cn": "Chinese"
 }
 
 if __name__ == "__main__":

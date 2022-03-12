@@ -7,5 +7,5 @@ import os
 if not os.path.exists('log'):
     os.makedirs('log')
 
-with open("log\sys_logger.log", "a+t", encoding="utf-8")as log_file:
+with open(f"log{os.sep}sys_logger.log", "a+t", encoding="utf-8")as log_file:
     log_file.write("")

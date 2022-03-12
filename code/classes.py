@@ -59,7 +59,7 @@ class LanguageUtils:
 
             logging.info(f"[{datetime.now()}]   [{__name__}] SUCCESS : {doc._.language}")
 
-            if confidence_score >= self._threshold:
+            if confidence_score >= self._threshold and lang_code in LANG_DICT.keys():
                 return LANG_DICT.get(lang_code), confidence_score
             else:
                 return LANG_DICT.get('default'), confidence_score

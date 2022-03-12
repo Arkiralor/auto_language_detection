@@ -13,6 +13,7 @@ LANG_DICT = {
     "gu": "Gujarati",
     "hi": "Hindi",
     "id": "Indonesian",
+    "is": "Icelandic",
     "it": "Italian",
     "ja": "Japanese",
     "km": "Khmer",
@@ -24,6 +25,7 @@ LANG_DICT = {
     "ms": "Malay",
     "my": "Burmese",
     "ne": "Nepali",
+    "no": "Norweigian",
     "or": "Oriya",
     "pa": "Punjabi",
     "pt": "Portuguese",
@@ -42,4 +44,10 @@ LANG_DICT = {
 }
 
 if __name__ == "__main__":
-    pass
+    from datetime import datetime
+    from os import sep
+
+    file_name = __file__.split(sep)[-1]
+    print(f"[{datetime.now()}]   [{file_name}]  as  [{__name__}]    IMPROPER EXECUTION")
+    print(f"[Error]   [{file_name}]    INTENDED FOR IMPORT ONLY")
+

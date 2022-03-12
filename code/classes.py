@@ -1,6 +1,6 @@
 from code.choices import LANG_DICT
 from logger.logger import logging
-import datetime
+from datetime import datetime
 
 
 import spacy
@@ -22,6 +22,7 @@ class LanguageUtils:
         Initialization method for the class:
         '''
         self._input_text = input_text
+        logging.info(f"[{datetime.now()}]   [{__name__}] INITIALISED")
 
     def __repr__(self):
         '''
@@ -40,7 +41,8 @@ class LanguageUtils:
             ln.factory("language_detector", func=create_lang_detector)
 
             ## 001 (prithoo): Loading the NLP model to the nlp object
-            nlp = en_core_web_md.load(disable=[None])
+            nlp = en_core_web_sm.load(disable=[None])
+            logging.info(f"[{datetime.now()}]   [{__name__}] MODEL LOADED [{nlp.__dict__['_meta']['name']}]")
 
             ## 001 (prithoo): Max length of the input text.
             nlp.max_length = 2_000_000
@@ -49,15 +51,22 @@ class LanguageUtils:
 
             ## 001 (prithoo): Initial parsing of the text by the nlp object
             doc = nlp(self._input_text)
-            lang_code = doc._.language.get("language")
-            confidence_score = doc._.language.get("score")
+
+            for iter in range(1, 6):
+                logging.info(f"[{datetime.now()}]   [{__name__}] ReTRAINING : {iter}")
+                lang_code = doc._.language.get("language")
+                confidence_score = doc._.language.get("score")
+
+            logging.info(f"[{datetime.now()}]   [{__name__}] SUCCESS : {doc._.language}")
 
             if confidence_score >= self._threshold:
                 return LANG_DICT.get(lang_code), confidence_score
             else:
                 return LANG_DICT.get('default'), confidence_score
+
+            
         except Exception as ex:
-            logging.info(f"[{datetime.now()}]   Error in [{__file__}|{__name__}]: {ex}")
+            logging.info(f"[{datetime.now()}]   Error in [{__name__}]: {ex}")
 
 
 @ln.factory('language_detector')

@@ -1,6 +1,6 @@
 # Automatic Language Detection via Spacy
 
-<p> A Module to automatically detect the language of a unicode text body using a by-product of the Spacy package.</p>
+A Module to automatically detect the language of a unicode text body using a by-product of the Spacy package.
 
 ## Setup
 

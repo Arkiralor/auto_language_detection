@@ -25,6 +25,6 @@ A Module to automatically detect the language of a unicode text body using a by-
 
 3. If you change the ```LANG_DICT``` with your own custom values, you can sort the dictionary and generate a new ```choices.py``` file using ```code.scripts.sort_lang_dict```.
 
-## Copyleft and Contributors:
+## Copyleft and Contributors
 
 1. [Prithoo Medhi](https://www.github.com/Arkiralor)  

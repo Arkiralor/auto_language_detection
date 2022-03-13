@@ -13,7 +13,7 @@ def main():
         if len(input_args) >= 2:
             file_path = input_args[-1]
             check_language(file_path)
-            logging.info(f"[{datetime.now()}]   [{__name__}] [TARGET: {file_path}]   SUCCESS ")
+            logging.info(f"[{datetime.now()}]   [{__name__}]    SUCCESS    [TARGET: {file_path}]")
         else:
             logging.info(f"[{datetime.now()}]   ERROR   in  [{__name__}] Target FILENAME not provided")
     except Exception as e:

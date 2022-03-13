@@ -15,9 +15,9 @@ def main():
             check_language(file_path)
             logging.info(f"[{datetime.now()}]   [{__name__}] [TARGET: {file_path}]   SUCCESS ")
         else:
-            logging.info(f"[{datetime.now()}]   [{__name__}] Target filename not provided")
+            logging.info(f"[{datetime.now()}]   ERROR   in  [{__name__}] Target FILENAME not provided")
     except Exception as e:
-        logging.info(f"[{datetime.now()}]   Error in [{__name__}]: {e}")
+        logging.info(f"[{datetime.now()}]   ERROR in [{__name__}]: {e}")
 
 if __name__ == "__main__":
     main()

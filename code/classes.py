@@ -1,6 +1,7 @@
 from code.choices import LANG_DICT
 from logger.logger import logging
 from datetime import datetime
+from time import time, sleep
 
 
 import spacy
@@ -44,6 +45,7 @@ class LanguageUtils:
             nlp = en_core_web_sm.load(disable=[None])
             logging.info(f"[{datetime.now()}]   [{__name__}] MODEL LOADED [{nlp.__dict__['_meta']['name']}]")
 
+
             ## 001 (prithoo): Max length of the input text.
             nlp.max_length = 2_000_000
 
@@ -51,20 +53,20 @@ class LanguageUtils:
 
             ## 001 (prithoo): Initial parsing of the text by the nlp object
             doc = nlp(self._input_text)
+            logging.info(f"[{datetime.now()}]   [{__name__}] INPUT TEXT PARSED")
 
-            for iter in range(1, 6):
-                logging.info(f"[{datetime.now()}]   [{__name__}] ReTRAINING : {iter}")
-                lang_code = doc._.language.get("language")
-                confidence_score = doc._.language.get("score")
+            lang_code = doc._.language.get("language")
+            confidence_score = doc._.language.get("score")
 
-            logging.info(f"[{datetime.now()}]   [{__name__}] SUCCESS : {doc._.language}")
+            logging.info(f"[{datetime.now()}]   [{__name__}] INFO : {doc._.language}")
 
             if confidence_score >= self._threshold and lang_code in LANG_DICT.keys():
                 return LANG_DICT.get(lang_code), confidence_score
             else:
-                return LANG_DICT.get('default'), confidence_score
-
-            
+                lang_code = "default"
+                logging.info(f"[{datetime.now()}]   [{__name__}]  WARNING: SCORE TOO LOW [{confidence_score}]")
+                return LANG_DICT.get(lang_code), confidence_score
+                
         except Exception as ex:
             logging.info(f"[{datetime.now()}]   Error in [{__name__}]: {ex}")
 

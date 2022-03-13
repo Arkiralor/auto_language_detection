@@ -1,6 +1,7 @@
 import logging
+from os import sep
 
 logging.basicConfig(
-    filename='log/sys_logger.log', 
+    filename=f"log{sep}sys_logger.log", 
     level=logging.DEBUG
     )

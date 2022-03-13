@@ -4,8 +4,10 @@ and the log file if they do not exist already.
 '''
 
 import os
+
 if not os.path.exists('log'):
     os.makedirs('log')
 
-with open(f"log{os.sep}sys_logger.log", "a+t", encoding="utf-8")as log_file:
-    log_file.write("")
+if not os.path.exists(f"log{os.sep}sys_logger.log"):
+    with open(f"log{os.sep}sys_logger.log", "w+t", encoding="utf-8")as log_file:
+        log_file.write("")

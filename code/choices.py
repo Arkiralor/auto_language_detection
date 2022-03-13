@@ -4,6 +4,7 @@ LANG_DICT = {
     "as": "Assamese",
     "bn": "Bengali",
     "bo": "Tibetan",
+    "ca": "Catalan",
     "de": "German",
     "default": "Unknown",
     "en": "English",

@@ -1,7 +1,9 @@
 ## Shellscript to repeatedly run "Main.PY" for all the sample texts to test
 ## out the logger module.
 
-for (( i=1;i<=256;i++ ))
+read -p "Enter the number of iterations: " num
+
+for (( i=1;i<=num;i++ ))
 do
     echo "Iteration: $i."
 
